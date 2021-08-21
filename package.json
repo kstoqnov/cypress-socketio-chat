@@ -1,0 +1,45 @@
+{
+  "name": "cypress-socketio-chat",
+  "version": "1.0.0",
+  "description": "Example testing real-time Socket.io chat using Cypress.io",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "start-test 8080 cy:run",
+    "start": "nyc --silent node .",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "dev": "start-test 8080 cy:open",
+    "pretty": "prettier --write 'cypress/**/*.js' index.js",
+    "cy:first": "cypress run --config-file cy-first-user.json",
+    "cy:second": "cypress run --config-file cy-second-user.json",
+    "chat:open": "node ./cypress/pair/chat --open",
+    "chat:run": "node ./cypress/pair/chat"
+  },
+  "dependencies": {
+    "ejs": "3.1.6",
+    "express": "^4.16.4",
+    "istanbul-lib-instrument": "^4.0.3",
+    "morgan": "^1.10.0",
+    "socket.io": "4.1.3"
+  },
+  "devDependencies": {
+    "@cypress/code-coverage": "3.9.10",
+    "arg": "^5.0.0",
+    "concurrently": "6.2.0",
+    "cypress": "8.3.0",
+    "cypress-recurse": "1.8.1",
+    "nyc": "^15.1.0",
+    "prettier": "2.3.1",
+    "socket.io-client": "4.1.3",
+    "socket.io-mock": "1.3.2",
+    "start-server-and-test": "1.12.5"
+  },
+  "nyc": {
+    "all": true,
+    "include": [
+      "index.js",
+      "scripts/*.js"
+    ]
+  }
+}
